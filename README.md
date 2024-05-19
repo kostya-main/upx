@@ -8,15 +8,15 @@
 
 ## Install
 
-    $ npm install --save upx
+    $ npm install --save-dev https://github.com/kostya-main/upx
 
 ## Usage
 
 ```javascript
-const UPX = require('upx')(opts) // see options below
+import * as UPX from 'upx';
+const upx = new UPX.default(file, {best : true} // see options below)
 
-UPX('Hello.exe')
-.output('Compressed.exe')
+upx.output('Compressed.exe')
 .start().then(function(stats){
   /* stats:
   { cmd: 'compress',
@@ -33,7 +33,7 @@ UPX('Hello.exe')
 
 ### Methods
 
-**`upx(<path>)`** : path is the absolute path to the file to compress/decompress.
+**`upx(<path>, {options})`** : path is the absolute path to the file to compress/decompress.
 
 **`.output(<output>)`** : path to the output file.
 
@@ -51,6 +51,7 @@ The options below can be true or false.
 | `decompress` | decompress |
 | `list` | list compressed files |
 | `force` | force compression of suspicious files |
+| `lzma` | try LZMA [slower but tighter than NRV] |
 | `brute` | try all available compression methods & filters (slow) |
 | `ultraBrute` | try even more compression variants (very slow) |
 | `overlayCopy` | copy any extra data attached to the file (default) |
@@ -60,10 +61,6 @@ The options below can be true or false.
 | `noReloc` | put no relocations in to the exe header (for dos) |
 | `8bit` | uses 8 bit size compression (default: 32 bit) |
 | `8mibRam` | 8 megabyte memory limit (default 2MiB) |
-
-## Debug
-
-set the env DEBUG: `DEBUG=upx node myScript.js`
 
 # Author
 
