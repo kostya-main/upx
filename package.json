@@ -1,11 +1,9 @@
 {
   "name": "upx",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Node.js cross-platform wrapper for UPX - the Ultimate Packer for eXecutables",
   "main": "index.js",
-  "scripts": {
-    "test": "standard"
-  },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/kostya-main/upx"
@@ -19,12 +17,9 @@
     "multiplatform",
     "js"
   ],
-  "author": "Rocco Musolino (roccomuso)",
+  "author": "Kostya",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kostya-main/upx/issues"
-  },
-  "dependencies": {
-    "debug": "^4.3.4"
   }
 }
